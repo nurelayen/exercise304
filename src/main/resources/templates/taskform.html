@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>exercise303</title>
+</head>
+<body>
+<form action="#" th:action="@{/process}" th:object="${task}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    Task: <input type="text" th:field="*{tasko}" />
+    <span th:if="${#fields.hasErrors('tasko')}"
+          th:errors="*{tasko}"></span><br />
+    Due Date: <input type="text" th:field="*{duedate}" />
+    <span th:if="${#fields.hasErrors('duedate')}"
+          th:errors="*{duedate}"></span><br />
+    Priority: <input type="text" th:field="*{priority}" />
+    <span th:if="${#fields.hasErrors('priority')}"
+          th:errors="*{priority}"></span><br />
+    <br />
+    <input type="submit" value="Submit" />
+
+</form>
+</body>
+</html>
